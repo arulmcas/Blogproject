@@ -43,3 +43,10 @@ pattern: /api/v1/comment/create
   "blogid": "blogid",
   "parentcomment": "parentcomment"
 }
+
+
+Relations
+==================
+User => address(One to one relation)
+User => Blog (one to many relation)
+Blog => comment(One to many relation)
