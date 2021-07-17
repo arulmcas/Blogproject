@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 public class Comment {
 
@@ -13,8 +15,13 @@ public class Comment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "comment", nullable = false)
-	private String comment;
+	@Column(name = "data", nullable = false, columnDefinition="Text")
+	@Type(type = "text")
+	private String data;
+	
+	@Column(name = "parentcomment", nullable = false, columnDefinition="Text")
+	@Type(type = "text")
+	private String parentcomment;
 	
 	@Column(name = "date", nullable = false)
 	private String date;
@@ -27,14 +34,6 @@ public class Comment {
 		this.id = id;
 	}
 
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-
 	public String getDate() {
 		return date;
 	}
@@ -43,18 +42,30 @@ public class Comment {
 		this.date = date;
 	}
 
-	@Override
-	public String toString() {
-		return "{id:" + id + ", comment:" + comment + ", date:" + date + "}";
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public String getParentcomment() {
+		return parentcomment;
+	}
+
+	public void setParentcomment(String parentcomment) {
+		this.parentcomment = parentcomment;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((comment == null) ? 0 : comment.hashCode());
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((parentcomment == null) ? 0 : parentcomment.hashCode());
 		return result;
 	}
 
@@ -67,10 +78,10 @@ public class Comment {
 		if (getClass() != obj.getClass())
 			return false;
 		Comment other = (Comment) obj;
-		if (comment == null) {
-			if (other.comment != null)
+		if (data == null) {
+			if (other.data != null)
 				return false;
-		} else if (!comment.equals(other.comment))
+		} else if (!data.equals(other.data))
 			return false;
 		if (date == null) {
 			if (other.date != null)
@@ -79,8 +90,17 @@ public class Comment {
 			return false;
 		if (id != other.id)
 			return false;
+		if (parentcomment == null) {
+			if (other.parentcomment != null)
+				return false;
+		} else if (!parentcomment.equals(other.parentcomment))
+			return false;
 		return true;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "{id:" + id + ", data:" + data + ", parentcomment:" + parentcomment + ", date:" + date + "}";
+	}
 	
 }

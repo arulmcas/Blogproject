@@ -13,6 +13,7 @@ public class BlogService {
 	
 	Function<BlogDTO, Blog> blogDataMaping = (blogDTO) -> {
 		Blog blog = new Blog();
+		blog.setBlogname(blogDTO.getBlogname());
 		blog.setQuestion(blogDTO.getQuestion());
 		blog.setDate(blogDTO.getDate());
 		return blog;

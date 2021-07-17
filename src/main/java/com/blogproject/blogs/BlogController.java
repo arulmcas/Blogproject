@@ -10,6 +10,7 @@ public class BlogController {
 	
 	public static void main(String args[]) {
 		BlogController blogController = new BlogController();
+		blogDTO.setBlogname("latest version");
 		blogDTO.setQuestion("What is the latest version of hibernate?");
 		blogDTO.setDate(new Date()+"");
 		blogController.createBlog();

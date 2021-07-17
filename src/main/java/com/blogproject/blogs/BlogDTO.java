@@ -5,13 +5,22 @@ import javax.persistence.Column;
 public class BlogDTO {
 
 	private int id;
+	private String blogname;
 	private String question;
 	private String date;
+	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public String getBlogname() {
+		return blogname;
+	}
+	public void setBlogname(String blogname) {
+		this.blogname = blogname;
 	}
 	public String getQuestion() {
 		return question;
@@ -27,7 +36,8 @@ public class BlogDTO {
 	}
 	@Override
 	public String toString() {
-		return "BlogDTO [id=" + id + ", question=" + question + ", date=" + date + "]";
+		return "BlogDTO [id=" + id + ", blogname=" + blogname + ", question=" + question + ", date=" + date + "]";
 	}
+	
 	
 }
