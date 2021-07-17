@@ -9,6 +9,17 @@ pattern: /api/v1/user/create
   "email": "email"
 }
 
+create address
+==================
+Method: POST
+pattern: /api/v1/address/create
+
+{
+  "address": "address",
+  "zip":"zipcode",
+  "landmark":"landmark"
+}
+
 
 create blog
 ==================
