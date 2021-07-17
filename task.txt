@@ -6,18 +6,12 @@ pattern: /api/v1/user/create
 {
   "name": "username",
   "location": "location",
-  "email": "email"
-}
-
-create address
-==================
-Method: POST
-pattern: /api/v1/address/create
-
-{
-  "address": "address",
-  "zip":"zipcode",
-  "landmark":"landmark"
+  "email": "email",
+  "address": {
+    "streetaddress": "address",
+    "zip":"zipcode",
+    "landmark":"landmark"
+  }
 }
 
 
