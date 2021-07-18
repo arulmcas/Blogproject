@@ -1,6 +1,11 @@
 package com.blogproject.blogs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
+
+import com.blogproject.comments.Comment;
 
 public class BlogDTO {
 
@@ -8,6 +13,7 @@ public class BlogDTO {
 	private String blogname;
 	private String question;
 	private String date;
+	private List<Comment> comments = new ArrayList<>();
 	
 	public int getId() {
 		return id;
@@ -34,9 +40,11 @@ public class BlogDTO {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	@Override
-	public String toString() {
-		return "BlogDTO [id=" + id + ", blogname=" + blogname + ", question=" + question + ", date=" + date + "]";
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 	
 	

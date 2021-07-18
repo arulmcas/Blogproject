@@ -5,8 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Type;
+
+import com.blogproject.blogs.Blog;
 
 @Entity
 public class Comment {
@@ -26,6 +30,10 @@ public class Comment {
 	@Column(name = "date", nullable = false)
 	private String date;
 
+	@ManyToOne
+	@JoinColumn(name = "blog_id")
+	private Blog blog;
+	
 	public int getId() {
 		return id;
 	}
@@ -58,6 +66,25 @@ public class Comment {
 		this.parentcomment = parentcomment;
 	}
 
+	public Blog getBlog() {
+		return blog;
+	}
+
+	public void setBlog(Blog blog) {
+		this.blog = blog;
+	}
+
+	public Comment(String data, String parentcomment, String date) {
+		super();
+		this.data = data;
+		this.parentcomment = parentcomment;
+		this.date = date;
+	}
+
+	public Comment() {
+		
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

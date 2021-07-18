@@ -1,11 +1,14 @@
 package com.blogproject.comments;
 
+import com.blogproject.blogs.Blog;
+
 public class CommentDTO {
 
 	private int id;
 	private String data;
 	private String parentcomment;
 	private String date;
+	private Blog blog;
 	
 	public int getId() {
 		return id;
@@ -30,6 +33,12 @@ public class CommentDTO {
 	}
 	public void setDate(String date) {
 		this.date = date;
+	}
+	public Blog getBlog() {
+		return blog;
+	}
+	public void setBlog(Blog blog) {
+		this.blog = blog;
 	}
 	
 	
