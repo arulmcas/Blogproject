@@ -16,6 +16,10 @@ public class User {
 	@Column(name = "name", nullable = false)
 	private String name;
 
+	private String location = "";
+
+	private String email = "";
+
 	public int getId() {
 		return id;
 	}
@@ -32,37 +36,29 @@ public class User {
 		this.name = name;
 	}
 
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	@Override
 	public String toString() {
-		return "{id:" + id + ", name:" + name + "}";
+		return "{" +
+				"id:" + id +
+				", name:'" + name + '\'' +
+				", location:'" + location + '\'' +
+				", email:'" + email + '\'' +
+				'}';
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (id != other.id)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
-	}
-	
 }
