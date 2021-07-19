@@ -14,7 +14,7 @@ public class AddressRepository {
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Exception in createBlog Repository::: "+ e);
+            System.out.println("Exception in create Address Repository::: "+ e);
         } finally {
             session.close();
         }

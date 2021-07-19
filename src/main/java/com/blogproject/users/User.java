@@ -1,10 +1,8 @@
 package com.blogproject.users;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.blogproject.address.Address;
+
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -19,6 +17,18 @@ public class User {
 	private String location = "";
 
 	private String email = "";
+
+	@OneToOne
+	@JoinColumn(name = "ADDRESS_ID")
+	private Address address = new Address();
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public int getId() {
 		return id;

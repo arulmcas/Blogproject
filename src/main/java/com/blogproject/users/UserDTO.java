@@ -1,6 +1,6 @@
 package com.blogproject.users;
 
-import javax.persistence.Column;
+import com.blogproject.address.AddressDTO;
 
 public class UserDTO {
 
@@ -8,6 +8,7 @@ public class UserDTO {
 	private String name;
 	private String location = "";
 	private String email = "";
+	private AddressDTO address = new AddressDTO();
 
 	public int getId() {
 		return id;
@@ -20,6 +21,14 @@ public class UserDTO {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public AddressDTO getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressDTO address) {
+		this.address = address;
 	}
 
 	public String getLocation() {

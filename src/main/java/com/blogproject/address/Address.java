@@ -1,14 +1,14 @@
 package com.blogproject.address;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.blogproject.users.User;
+
+import javax.persistence.*;
 
 @Entity
 public class Address {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String streetaddress;
@@ -17,6 +17,9 @@ public class Address {
 
     private String landmark;
 
+    @OneToOne(mappedBy="address")
+    private User user;
+
     public Address(String streetaddress, String zip, String landmark) {
         this.streetaddress = streetaddress;
         this.zip = zip;
@@ -24,6 +27,22 @@ public class Address {
     }
 
     public Address() {
+    }
+
+    public String getStreetaddress() {
+        return streetaddress;
+    }
+
+    public void setStreetaddress(String streetaddress) {
+        this.streetaddress = streetaddress;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getId() {

@@ -15,7 +15,7 @@ public class UserRepository {
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Exception in createBlog Repository::: "+ e);
+            System.out.println("Exception in create User Repository::: "+ e);
         } finally {
             session.close();
         }
