@@ -1,12 +1,19 @@
 package com.blogproject.blogs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Type;
+
+import com.blogproject.comments.Comment;
 
 @Entity
 public class Blog {
@@ -25,6 +32,9 @@ public class Blog {
 	@Column(name = "date", nullable = false)
 	private String date;
 
+	@OneToMany(mappedBy = "blog",fetch = FetchType.EAGER)
+	private List<Comment> comments = new ArrayList<>();
+	
 	public int getId() {
 		return id;
 	}
@@ -55,6 +65,14 @@ public class Blog {
 
 	public void setBlogname(String blogname) {
 		this.blogname = blogname;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	@Override
@@ -99,7 +117,10 @@ public class Blog {
 
 	@Override
 	public String toString() {
-		return "{id:" + id + ", blogname:" + blogname + ", question:" + question + ", date:" + date + "}";
+		return "Blog [id=" + id + ", blogname=" + blogname + ", question=" + question + ", date=" + date + ", comments="
+				+ comments + "]";
 	}
+
+
 	
 }

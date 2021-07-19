@@ -24,4 +24,15 @@ public class BlogRepository {
 		}
 		return "";
 	}
+	
+	public Blog getBlog(int blogid) {
+		Blog blog = new Blog();
+		Session session = SessionUtil.getSessionFactory().openSession();
+		try {
+			blog = (Blog) session.get(Blog.class, blogid);
+		} catch (Exception e) {
+			System.out.println("Exception in getBlog Repository::: "+ e);
+		}
+		return blog;
+	}
 }

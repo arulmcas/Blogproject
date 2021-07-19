@@ -1,6 +1,10 @@
 package com.blogproject.blogs;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import com.blogproject.comments.Comment;
 
 
 public class BlogController {
@@ -10,13 +14,19 @@ public class BlogController {
 	
 	public static void main(String args[]) {
 		BlogController blogController = new BlogController();
-		blogDTO.setBlogname("latest version");
-		blogDTO.setQuestion("What is the latest version of hibernate?");
-		blogDTO.setDate(new Date()+"");
-		blogController.createBlog();
+//		blogController.createBlog();
+		blogController.getBlog();
 	}
 	
 	public void createBlog() {
+		blogDTO.setBlogname("exception");
+		blogDTO.setQuestion("types of exception");
+		blogDTO.setDate(new Date()+"");
 		String id = blogService.createBlog(blogDTO);
+	}
+	
+	public void getBlog() {
+		Blog blog= blogService.getBlog(1);
+		System.out.println(blog);
 	}
 }
