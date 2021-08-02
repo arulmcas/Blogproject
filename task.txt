@@ -24,7 +24,9 @@ pattern: /api/v1/blog/create
 {
   "blogname": "namee",
   "userid": "userid",
-  "question": "question"
+  "question": "question,
+  "date": "date",
+  "comments": []
 }
 
 create comment
